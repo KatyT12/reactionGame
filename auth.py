@@ -35,13 +35,9 @@ def sign_up(db):
     return ""
   contains_num = any(chr.isdigit() for chr in password)
   if contains_num:
-    age = int(input("Input your age: "))
-    if age > 0 and age < 150:
-      db.insert_user(username,password,age)
-      return username
-    else:
-      print("ERROR: Age is invalid")
-      return ""
+    age = validate_int("Input your age\n>",0,150)
+    db.insert_user(username,password,age)
+    return username
   else:
     print("ERROR: password needs to contain a number")
     return ""

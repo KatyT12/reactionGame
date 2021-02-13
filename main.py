@@ -29,7 +29,8 @@ class Game:
     elif num == 2:
       self.db.print_all_tests_for_user(self.username)
     elif num == 3:
-      self.average_reaction_time()
+      avg = self.average_reaction_time()
+      print("%f seconds" % avg)
     elif num == 4:
       return True
     return False
@@ -43,7 +44,6 @@ class Game:
     l = db.all_times_of_user(self.username)    
     num = 0
     for n in l:
-      print(n)
       num += n
     return num/len(l)    
 
